@@ -1,16 +1,17 @@
 """Case-study #4 Анализ текста
 Разработчики:
-Иванов А.С., Петров П.С., Сидоров C.H.
+Зеленская, Золотых, Шерубнева
 
 """
+import ru_local
 
-text = input("Введите текст:")
+text = input(ru_local.ENTER_TEXT)
 
 count_sentens = text.count('.')
-print('Предложений:', count_sentens)
+print(ru_local.SENTENCES, count_sentens)
 
 count_words = text.count(' ')
-print('Слов:', count_words + 1)
+print(ru_local.WORDS, count_words + 1)
 
 count_syllables = 0
 for i in text:
@@ -20,20 +21,20 @@ for i in text:
        letter == "у" or letter == "ы" or \
        letter == "ё":
         count_syllables += 1
-print('Слогов:', count_syllables)
+print(ru_local.SYLLABLES, count_syllables)
 
 ASL = (count_words + 1) / count_sentens
-print('Средняя длина предложения в словах:', ASL)
+print(ru_local.AVERAGE_SENTENCE_LENGTH_IN_WORDS, ASL)
 ASW = count_syllables / (count_words + 1)
-print('Средняя длина слова в слогах:', ASW)
+print(ru_local.AVERAGE_SENTENCE_LENGTH_IN_SYLLABLES, ASW)
 FRE = 206.835 - (1.3 * ASL) - (60.1 * ASW)
-print('Индекс удобочитаемости Флеша:', FRE)
+print(ru_local.INDEX_READABILITY_FLASH, FRE)
 
 if FRE <= 25:
-    print('Текст трудно читается (для выпускников ВУЗов).')
+    print(ru_local.TEXT_IS_DIFFICULT_TO_READ)
 elif 25 < FRE <= 50:
-    print('Текст немного трудно читать (для студентов).')
+    print(ru_local.TEXT_IS_A_BIT_DIFFICULT_TO_READ)
 elif 50 < FRE <= 80:
-    print('Простой текст (для школьников).')
+    print(ru_local.SIMPLE_TEXT)
 elif 80 < FRE:
-    print('Текст очень легко читается (для младших школьников).')
+    print(ru_local.TEXT_IS_EASY_TO_READ)
