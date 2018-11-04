@@ -7,7 +7,10 @@ import ru_local
 
 text = input(ru_local.ENTER_TEXT)
 
-count_sentens = text.count('.')
+count_sentens_1 = text.count('.')
+count_sentens_2 = text.count('!')
+count_sentens_3 = text.count('?')
+count_sentens = count_sentens_1 + count_sentens_2 + count_sentens_3
 print(ru_local.SENTENCES, count_sentens)
 
 count_words = text.count(' ')
@@ -19,7 +22,8 @@ for i in text:
     if letter == "а" or letter == "о" or \
        letter == "е" or letter == "и" or \
        letter == "у" or letter == "ы" or \
-       letter == "ё":
+       letter == "ё" or letter == "э" or \
+       letter == "ю" or letter == "я":
         count_syllables += 1
 print(ru_local.SYLLABLES, count_syllables)
 
